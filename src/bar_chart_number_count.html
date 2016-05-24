@@ -58,7 +58,7 @@
         trigger: 'axis'
     },
     legend: {
-        data:['篮球','红球']
+        data:['蓝球','红球']
     },
     toolbox: {
         show: true,
@@ -83,9 +83,9 @@
     },
     series: [
         {
-            name:'篮球统计情况',
+            name:'红球统计情况',
             type:'line',
-            data:blues,
+            data:reds,
             markPoint: {
                 data: [
                     {type: 'max', name: '最大值'},
@@ -94,17 +94,32 @@
             },
             markLine: {
                 data: [
-                    {type: 'average', name: '平均值'}
+                    {type: 'average', name: '平均值'},
+                    [{
+                        symbol: 'arrow',
+                        label: {
+                            normal: {
+                                formatter: '最大值'
+                            }
+                        },
+                        type: 'max',
+                        name: '最大值'
+                    }, {
+                        symbol: 'circle',
+                        x: '60%',
+                        y: '40%'
+                    }]
                 ]
             }
         },
         {
-            name:'红球统计情况',
+            name:'蓝球统计情况',
             type:'line',
-            data:reds,
+            data:blues,
             markPoint: {
                 data: [
-                    {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
+                    {type: 'max', name: '最大值'},
+                    {type: 'min', name: '最小值'}
                 ]
             },
             markLine: {
